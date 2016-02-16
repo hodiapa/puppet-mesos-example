@@ -35,6 +35,9 @@ modules:
     bundle install
     bundle exec librarian-puppet install
 
+or using GEM:
+    gem install librarian-puppet
+
 The last command will download the Puppet modules listed in `Puppetfile`
 into the `vendor/modules` directory.
 
