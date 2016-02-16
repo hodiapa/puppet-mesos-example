@@ -6,10 +6,10 @@ mod 'puppetlabs-concat',
 mod 'richardc-datacat',
     :git => 'https://github.com/richardc/puppet-datacat',      :ref => '0.6.2'
 mod 'deric-mesos',
-    :git => 'https://github.com/deric/puppet-mesos',           :ref => 'v0.7.0'
+    :git => 'https://github.com/deric/puppet-mesos'
 mod 'puppetlabs-stdlib',
     :git => 'https://github.com/puppetlabs/puppetlabs-stdlib', :ref => '4.11.0'
 mod 'deric-zookeeper',
     :git => 'https://github.com/deric/puppet-zookeeper',       :ref => 'v0.4.2'
-	
+
 

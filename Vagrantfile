@@ -39,8 +39,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 
       instance.vm.box = "ubuntu/trusty64"
-      instance.vm.provision :shell, :path => 'scripts/puppet.sh'
-
+      #instance.vm.provision :shell, :path => 'scripts/puppet.sh'
+      instance.vm.provision :shell, :path => 'scripts/bootstrap.sh'
       instance.vm.network "private_network", :ip => "10.24.1.1#{i+1}"
        # for mesos web UI.
        instance.vm.network :forwarded_port, guest: 5050, host: 5050
@@ -55,11 +55,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       instance.vm.provision :puppet do |puppet|
         #puppet.options        = '--debug --verbose --summarize --reports store --hiera_config=/vagrant/hiera.yaml'
         puppet_log =  "/vagrant/puppet_logs_#{name}.txt"
-        puppet.options        = "--debug --verbose --summarize --logdest #{puppet_log} --trace"
+        puppet.options        = "--debug --verbose --summarize --trace --logdest #{puppet_log}"
+        #puppet.options        = "--debug --verbose --summarize --trace"
         puppet.hiera_config_path = "hiera.yaml"
 
-        puppet.environment_path = "puppet_manifests"
-        puppet.environment = "manifests"
+        #puppet.environment_path = "puppet_manifests"
+        #puppet.environment = "manifests"
 
         puppet.manifests_path = "puppet_manifests/manifests"
         puppet.module_path    = [ 'modules', 'vendor/modules' ]

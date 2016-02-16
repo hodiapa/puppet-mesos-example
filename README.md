@@ -38,6 +38,8 @@ modules:
 or using GEM:
     gem install librarian-puppet
 
+    librarian-puppet install
+
 The last command will download the Puppet modules listed in `Puppetfile`
 into the `vendor/modules` directory.
 
